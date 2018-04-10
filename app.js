@@ -278,7 +278,7 @@ app.post("/reset/:token", function(req, res) {
         );
       },
       function(user, done) {
-        var smtpTransport = nodemailer.createTransport("SMTP", {
+        var smtpTransport = nodemailer.createTransport({
           service: "SendGrid",
           auth: {
             user: SENDGRID_USER,
