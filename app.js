@@ -44,7 +44,7 @@ passport.deserializeUser(function(id, done) {
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String },
+  password: { type: String, required: true },
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });
@@ -128,12 +128,18 @@ app.get("/signup", function(req, res) {
 });
 
 app.post("/login", function(req, res, next) {
+  console.log("req:", req.body);
   passport.authenticate("local", function(err, user, info) {
+    console.log("info:", info);
+    console.log("err:", err);
+    console.log("user1:", user);
     if (err) return next(err);
     if (!user) {
+      console.log("user2:", user);
       return res.redirect("/login");
     }
     req.logIn(user, function(err) {
+      console.log("user3:", user);
       if (err) return next(err);
       return res.redirect("/");
     });
