@@ -16,7 +16,7 @@
     "express": "^4.16.4",
     "express-flash": "0.0.2",
     "express-session": "^1.16.1",
-    "http-errors": "~1.6.2",
+    "http-errors": "~1.7.3",
     "jstransformer": "^1.0.0",
     "mongoose": "^5.5.5",
     "morgan": "^1.9.1",
